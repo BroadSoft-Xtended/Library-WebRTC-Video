@@ -1,0 +1,1 @@
+module.exports = {view: require('./lib/views/video'), model: require('./lib/models/video')};
