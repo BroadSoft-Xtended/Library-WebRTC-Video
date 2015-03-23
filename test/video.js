@@ -8,7 +8,7 @@ describe('video', function() {
     core = require('webrtc-core');
     testUA = core.testUA;
     ExSIP = core.exsip;
-    config = {};
+    config = {selfViewSize: '1x'};
     testUA.createCore('configuration', config);
     testUA.createCore('sipstack', config);
     testUA.mockWebRTC();
@@ -18,6 +18,15 @@ describe('video', function() {
     eventbus = bdsft_client_instances.eventbus_test;
   });
 
+  it('with audioOnly', function() {
+    configuration.view = 'audioOnly';
+    expect(video.classes.indexOf('audioOnly')).toNotEqual(-1);
+    configuration.view = '';
+  });
+  it('with selfViewSize', function() {
+    configuration.selfViewSize = '2x';
+    expect(video.classes.indexOf('selfView-2x')).toNotEqual(-1);
+  });
   it('localVideo visible', function() {
     testUA.isVisible(videoview.localVideo, true);
   });
