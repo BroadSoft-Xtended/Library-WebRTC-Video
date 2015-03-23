@@ -115,16 +115,11 @@
       width 50%
       height 50%
 
-  .view-audioOnly .video
+  .video.view-audioOnly
     display none !important
     
-  .enableSelfView:not(.video-hidden) .selfViewDisable,
-  .enableSelfView.video-hidden .selfViewEnable,
-  .enableSelfView:not(.video-hidden) .localVideo
+  .video.enableSelfView:not(.video-hidden) .localVideo
     {fadeIn}
 
-
-  .enableSelfView.video-hidden .selfViewDisable,
-  .enableSelfView:not(.video-hidden) .selfViewEnable,
-  .enableSelfView.video-hidden .localVideo
+  .video.enableSelfView.video-hidden .localVideo
     {fadeOut}
