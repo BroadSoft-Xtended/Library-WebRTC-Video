@@ -56,16 +56,43 @@
         right 0
         left 0
 
+    .watermark-icon
+      position absolute
+      top 50%
+      left 50%
+      backface-visibility hidden
+      transform translate(-50%,-50%)
+      color rgba(255, 255, 255, 0.08)
+      z-index 1
+      font-size 265px
+      text-align center
+      width 100%
 
-  .widescreen
-    .video
+  .video.fullscreen-shown
+      padding-bottom 0
+      bottom 40px
+      position absolute
+      height auto !important
+
+  :-webkit-full-screen
+    .remote
+      z-index 1
+    .localVideo
+      z-index 2
+
+  :-webkit-full-screen .remote, 
+  :-webkit-full-screen .localVideo
+    border none
+    border-radius 0
+
+
+  .video.widescreen
       padding-bottom 56.25%
 
-  .standard
-    .video
+  .video.standard
       padding-bottom 75%
 
-  .started
+  .video.started
     .watermark-icon
       display none
       transform none
@@ -73,7 +100,7 @@
     .remote
       box-shadow 0 0 1px rgba(0, 0, 0, 0.1)
 
-  .connected
+  .video.connected
     .watermark-icon
       box-shadow 0 0 1px rgba(0, 0, 0, 0.05)
 

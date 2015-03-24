@@ -23,6 +23,14 @@ describe('video', function() {
     expect(video.classes.indexOf('audioOnly')).toNotEqual(-1);
     configuration.view = '';
   });
+  it('with widescreen', function() {
+    configuration.resolutionType = core.constants.WIDESCREEN;
+    expect(video.classes.indexOf('widescreen')).toNotEqual(-1);
+  });
+  it('after call start', function() {
+    testUA.startCall();
+    expect(video.classes.indexOf('started')).toNotEqual(-1);
+  });
   it('with selfViewSize', function() {
     configuration.selfViewSize = '2x';
     expect(video.classes.indexOf('selfView-2x')).toNotEqual(-1);
