@@ -40,7 +40,7 @@ describe('video', function() {
   });
 
   it('localVideo on viewChanged', function() {
-    eventbus.viewChanged({visible: false, viewName: 'video'});
+    video.visible = false;
     testUA.isVisible(videoview.localVideo, false);
   });
 });
