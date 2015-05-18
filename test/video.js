@@ -33,7 +33,7 @@ describe('video', function() {
   });
   it('with selfViewSize', function() {
     configuration.selfViewSize = '2x';
-    expect(video.classes.indexOf('selfView-2x')).toNotEqual(-1);
+    expect(video.classes.indexOf('_2x')).toNotEqual(-1);
   });
   it('localVideo visible', function() {
     testUA.isVisible(videoview.localVideo, true);
