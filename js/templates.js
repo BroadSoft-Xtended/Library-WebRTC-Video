@@ -16,7 +16,7 @@
 
     // video.jade compiled template
     templatizer["video"] = function tmpl_video() {
-        return '<div class="bdsft-client"><div class="video classes"><span class="icon-facetime-video watermark-icon"></span><video autoplay="autoplay" class="remote"></video><div class="localVideo fadeable"><div class="inner"><video autoplay="autoplay" muted="true" class="local"></video></div></div></div></div>';
+        return '<div class="bdsft-client"><div class="video classes"><video autoplay="autoplay" class="remote"></video><div class="localVideo fadeable"><div class="inner"><video autoplay="autoplay" muted="true" class="local"></video></div></div></div></div>';
     };
 
     return templatizer;
