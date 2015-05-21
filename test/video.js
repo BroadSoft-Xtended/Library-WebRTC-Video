@@ -15,7 +15,7 @@ describe('video', function() {
     testUA.createModelAndView('video', {
       video: require('../')
     });
-    eventbus = bdsft_client_instances.eventbus_test;
+    eventbus = bdsft_client_instances.test.eventbus;
   });
 
   it('with audioOnly', function() {
