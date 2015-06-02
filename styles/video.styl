@@ -43,11 +43,81 @@
         right 0
         left 0
 
-  .video.fullscreen-shown
+    &._960x720 .content, &._640x480 .content, &._320x240 .content
+        padding-bottom 75%
+
+    &._1280x720 .content, &._640x360 .content, &._320x180 .content, &.hd .content
+        padding-bottom 56.25%
+
+    &._960x720
+      width 960px
+
+    &._640x360, &._640x480
+      width 640px
+
+    &._320x180, &._320x240
+      width 320px
+
+    &._1280x720, &.hd
+      width 1280px
+
+    &.fullscreen-shown
       padding-bottom 0
       bottom 40px
       position absolute
       height auto !important
+
+    &.started
+      .remote
+        display: inline;
+        box-shadow 0 0 1px rgba(0, 0, 0, 0.1)
+
+    &.bl
+      .localVideo
+        top auto
+        bottom 0
+        left 0
+        right auto
+
+    &.tl
+      .localVideo
+        top 0
+        bottom auto
+        left 0
+        right auto
+
+    &.tr
+      .localVideo
+        top 0
+        bottom auto
+        left auto !important
+        right 0
+
+    &.br
+      .localVideo
+        top auto
+        bottom 0
+        left auto !important
+        right 0
+
+    &._1x
+      .localVideo
+        width 25%
+        height 25%
+
+    &._2x
+      .localVideo
+        width 50%
+        height 50%
+
+    &.audioOnly
+      display none !important
+      
+    &.enableSelfView:not(.video-hidden) .localVideo
+      {fadeIn}
+
+    &.enableSelfView.video-hidden .localVideo
+      {fadeOut}
 
   :-webkit-full-screen
     .remote
@@ -60,67 +130,10 @@
     border none
     border-radius 0
 
-
-  .video.widescreen
-      padding-bottom 56.25%
-
-  .video.standard
-      padding-bottom 75%
-
-  .video.started
-    .remote
-      display: inline;
-      box-shadow 0 0 1px rgba(0, 0, 0, 0.1)
-
-  .video.bl
-    .localVideo
-      top auto
-      bottom 0
-      left 0
-      right auto
-
-  .video.tl
-    .localVideo
-      top 0
-      bottom auto
-      left 0
-      right auto
-
-  .video.tr
-    .localVideo
-      top 0
-      bottom auto
-      left auto !important
-      right 0
-
-  .video.br
-    .localVideo
-      top auto
-      bottom 0
-      left auto !important
-      right 0
-
-  .video._1x
-    .localVideo
-      width 25%
-      height 25%
-
-  .video._2x
-    .localVideo
-      width 50%
-      height 50%
-
-  .video.audioOnly
-    display none !important
-    
-  .video.enableSelfView:not(.video-hidden) .localVideo
-    {fadeIn}
-
-  .video.enableSelfView.video-hidden .localVideo
-    {fadeOut}
     
   @css {
     .bdsft-client .video {
       background: url('data:image/svg+xml;base64,<%= videobg %>') no-repeat left center;
+      background-size: cover;
     }
   }
