@@ -15,7 +15,6 @@ describe('video', function() {
     testUA.createModelAndView('video', {
       video: require('../')
     });
-    eventbus = bdsft_client_instances.test.eventbus;
   });
 
   it('displayResolution default', function() {
@@ -69,11 +68,11 @@ describe('video', function() {
     expect(video.classes.indexOf('_2x')).toNotEqual(-1);
   });
   it('localVideo visible', function() {
-    testUA.isVisible(videoview.localVideo, true);
+    testUA.isVisible(videoview.view.find('.localVideo'), true);
   });
 
   it('localVideo on viewChanged', function() {
     video.visible = false;
-    testUA.isVisible(videoview.localVideo, false);
+    testUA.isVisible(videoview.view.find('.localVideo'), false);
   });
 });
