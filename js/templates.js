@@ -19,5 +19,10 @@
         return '<div class="bdsft-webrtc"><div class="video classes"><div class="content"><video autoplay="autoplay" class="remote"></video><div class="localVideo fadeable"><div class="inner"><video autoplay="autoplay" muted="true" class="local"></video></div></div></div></div></div>';
     };
 
+    // videocontrol.jade compiled template
+    templatizer["videocontrol"] = function tmpl_videocontrol() {
+        return '<div class="bdsft-webrtc"><div class="video classes"><div class="content"><video autoplay="autoplay" class="remote"></video><div class="localVideo fadeable"><div class="inner"><video autoplay="autoplay" muted="true" class="local"></video></div></div></div></div></div>';
+    };
+
     return templatizer;
 }));

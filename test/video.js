@@ -4,17 +4,25 @@ jsdom({});
 
 describe('video', function() {
 
+  var createModel = function(){
+    testUA.createModelAndView('video', {
+      video: require('../'),
+      sipstack: require('webrtc-sipstack'),
+      fullscreen: require('webrtc-fullscreen')
+    });
+  };
+  
   before(function() {
     core = require('webrtc-core');
     testUA = core.testUA;
     ExSIP = core.exsip;
     testUA.createCore('urlconfig');
     testUA.createCore('cookieconfig');
-    testUA.createCore('sipstack');
-    testUA.mockWebRTC();
-    testUA.createModelAndView('video', {
-      video: require('../')
+    testUA.createModelAndView('sipstack', {
+      sipstack: require('webrtc-sipstack')
     });
+    testUA.mockWebRTC();
+    createModel();
   });
 
   it('displayResolution default', function() {
@@ -37,17 +45,13 @@ describe('video', function() {
   it('enableSelfView with cookieconfig.enableSelfView', function() {
     urlconfig.enableSelfView = undefined;
     cookieconfig.enableSelfView = false;
-    testUA.createModelAndView('video', {
-      video: require('../')
-    });
+    createModel();
     expect(video.enableSelfView).toEqual(false);
   });
   it('enableSelfView with cookieconfig.enableSelfView and urlconfig.enableSelfView', function() {
     urlconfig.enableSelfView = true;
     cookieconfig.enableSelfView = false;
-    testUA.createModelAndView('video', {
-      video: require('../')
-    });
+    createModel();
     expect(video.enableSelfView).toEqual(true);
   });
   it('with audioOnly', function() {
