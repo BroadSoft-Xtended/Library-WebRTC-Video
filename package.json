@@ -9,9 +9,9 @@
   "dependencies": {
   },
   "devDependencies": {
-    "webrtc-core": "git+ssh://git.broadsoftlabs.net:7922/wrtc/webrtc-core.git",
-    "webrtc-sipstack": "git+ssh://git.broadsoftlabs.net:7922/wrtc/webrtc-sipstack.git",
-    "webrtc-fullscreen": "git+ssh://git.broadsoftlabs.net:7922/wrtc/webrtc-fullscreen.git",
+    "webrtc-core": "BroadSoft-Xtended/Library-WebRTC-Core.git",
+    "webrtc-sipstack": "BroadSoft-Xtended/Library-WebRTC-SIPStack.git",
+    "webrtc-fullscreen": "BroadSoft-Xtended/Library-WebRTC-FullScreen.git",
     "templatizer": "1.2.1",
     "mocha": "2.1.0",
     "jsdom": "3.1.0",
@@ -24,7 +24,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "ssh://git@git.broadsoftlabs.net:7922/wrtc/video.git"
+    "url": "ssh://git@github.com:BroadSoft-Xtended/Library-WebRTC-Video.git"
   },
   "author": "Dominik Steiner",
   "license": "ISC"

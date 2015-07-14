@@ -1,11 +1,7 @@
-var jsdom = require('mocha-jsdom');
-expect = require('expect');
-jsdom({});
-
+test = require('../node_modules/webrtc-sipstack/test/includes/common')(require('../node_modules/webrtc-core/test/includes/common'));
 describe('video', function() {
-
   var createModel = function(){
-    testUA.createModelAndView('video', {
+    test.createModelAndView('video', {
       video: require('../'),
       sipstack: require('webrtc-sipstack'),
       fullscreen: require('webrtc-fullscreen')
@@ -13,15 +9,11 @@ describe('video', function() {
   };
   
   before(function() {
-    core = require('webrtc-core');
-    testUA = core.testUA;
-    ExSIP = core.exsip;
-    testUA.createCore('urlconfig');
-    testUA.createCore('cookieconfig');
-    testUA.createModelAndView('sipstack', {
+    test.createCore('urlconfig');
+    test.createCore('cookieconfig');
+    test.createModelAndView('sipstack', {
       sipstack: require('webrtc-sipstack')
     });
-    testUA.mockWebRTC();
     createModel();
   });
 
@@ -64,7 +56,7 @@ describe('video', function() {
     expect(video.classes.indexOf('_1280x720')).toNotEqual(-1);
   });
   it('after call start', function() {
-    testUA.startCall();
+    test.startCall();
     expect(video.classes.indexOf('started')).toNotEqual(-1);
   });
   it('with selfViewSize', function() {
@@ -72,11 +64,11 @@ describe('video', function() {
     expect(video.classes.indexOf('_2x')).toNotEqual(-1);
   });
   it('localVideo visible', function() {
-    testUA.isVisible(videoview.view.find('.localVideo'), true);
+    test.isVisible(videoview.view.find('.localVideo'), true);
   });
 
   it('localVideo on viewChanged', function() {
     video.visible = false;
-    testUA.isVisible(videoview.view.find('.localVideo'), false);
+    test.isVisible(videoview.view.find('.localVideo'), false);
   });
 });
