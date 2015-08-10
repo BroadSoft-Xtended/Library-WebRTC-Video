@@ -46,10 +46,12 @@ describe('video', function() {
     createModel();
     expect(video.enableSelfView).toEqual(true);
   });
-  it('with audioOnly', function() {
+  it('urlconfig.audioOnlyView', function() {
     urlconfig.view = 'audioOnly';
-    expect(video.classes.indexOf('audioOnly')).toNotEqual(-1);
-    urlconfig.view = '';
+    expect(video.classes.indexOf('showLocal')).toEqual(-1);
+    expect(video.classes.indexOf('showRemote')).toEqual(-1);
+    test.equalCss(videoview.view.find('.video'), 'display', 'none');
+    urlconfig.view = 'audioVideo';
   });
   it('with widescreen', function() {
     video.displayResolution = '1280x720';
@@ -58,17 +60,38 @@ describe('video', function() {
   it('after call start', function() {
     test.startCall();
     expect(video.classes.indexOf('started')).toNotEqual(-1);
+    test.endCall();
   });
   it('with selfViewSize', function() {
     video.selfViewSize = '2x';
     expect(video.classes.indexOf('_2x')).toNotEqual(-1);
   });
   it('localVideo visible', function() {
-    test.isVisible(videoview.view.find('.localVideo'), true);
+    test.equalCss(videoview.view.find('.localVideo'), 'opacity', '1');
   });
-
-  it('localVideo on viewChanged', function() {
-    video.visible = false;
-    test.isVisible(videoview.view.find('.localVideo'), false);
+  it('showLocal = false, showRemote = false', function() {
+    video.showLocal = false;
+    video.showRemote = false;
+    video.hasLocal = false;
+    video.hasRemote = false;
+    test.equalCss(videoview.view.find('.video'), 'display', 'none');
+  });
+  it('showLocal = false, showRemote = true, hasRemote = false', function() {
+    test.startCall();
+    video.showLocal = false;
+    video.showRemote = true;
+    video.hasLocal = false;
+    video.hasRemote = false;
+    test.equalCss(videoview.view.find('.video'), 'width', '0px');
+    test.endCall();
+  });
+  it('showLocal = true, showRemote = false, hasLocal = true, hasRemote = false', function() {
+    test.startCall();
+    video.showLocal = true;
+    video.showRemote = false;
+    video.hasLocal = true;
+    video.hasRemote = false;
+    test.equalCss(videoview.view.find('.video'), 'display', '');
+    test.endCall();
   });
 });
