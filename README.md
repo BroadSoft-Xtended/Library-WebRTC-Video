@@ -28,8 +28,12 @@ remote   |video  |Displays the remote video.
 
 Property      |Type    |Description
 --------------|--------|---------------------------------------------------------------------------------
+hasLocal 	  |boolean |True if the local peer is sending a video stream.
+hasRemote	  |boolean |True if the remote peer is sending a video stream.
 localStream   |object  |The object for the local stream. Setting it to null will end the local video.
 remoteStream  |object  |The object for the remote stream. Setting it to null will end the remote video.
+showRemote	  |boolean |True if the remote video element is visible.
+showLocal	  |boolean |True if the local video element is visible.
 
 ## Configuration
 <a name="configuration"></a>
