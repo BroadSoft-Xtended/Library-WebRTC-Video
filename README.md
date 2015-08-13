@@ -2,9 +2,7 @@
 
 Handles the video media flow using a local and remote \<video\> element.
 
-Model : bdsft_webrtc.default.video
-
-View : bdsft_webrtc.default.videoview
+Namespace : bdsft_webrtc.default.video
 
 Dependencies : [Full Screen](https://github.com/BroadSoft-Xtended/Library-WebRTC-FullScreen), [SIP Stack](https://github.com/BroadSoft-Xtended/Library-WebRTC-SIPStack)
 
