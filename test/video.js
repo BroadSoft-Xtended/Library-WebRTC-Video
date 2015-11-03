@@ -1,20 +1,21 @@
-test = require('../node_modules/webrtc-sipstack/test/includes/common')(require('../node_modules/webrtc-core/test/includes/common'));
+test = require('../node_modules/webrtc-sipstack/test/includes/common')(require('../node_modules/bdsft-sdk-test/lib/common'));
 describe('video', function() {
   var createModel = function(){
     test.createModelAndView('video', {
       video: require('../'),
       sipstack: require('webrtc-sipstack'),
-      fullscreen: require('webrtc-fullscreen')
+      fullscreen: require('webrtc-fullscreen'),
+      eventbus: require('bdsft-sdk-eventbus'),
+      debug: require('bdsft-sdk-debug'),
+      core: require('webrtc-core')
     });
   };
   
   before(function() {
-    test.createCore('urlconfig');
-    test.createCore('cookieconfig');
-    test.createModelAndView('sipstack', {
-      sipstack: require('webrtc-sipstack')
-    });
     createModel();
+    sipstack = bdsft_client_instances.test.sipstack.sipstack;
+    cookieconfig = bdsft_client_instances.test.core.cookieconfig;
+    urlconfig = bdsft_client_instances.test.core.urlconfig;
   });
 
   it('displayResolution default', function() {
